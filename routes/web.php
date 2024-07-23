@@ -14,6 +14,7 @@ Route::prefix("/todo")->controller(TodoController::class)->name("Todo.")->group(
         Route::post('{todo}/edit', "edit");
         Route::get('{todo}' , "chageState")->name("chageState");
 
+        Route::delete('{todo}/delete' , "delete")->name("delete");
         Route::get('{todo}/delete' , "delete")->name("delete");
         
         Route::post('', "store")->name("show");
