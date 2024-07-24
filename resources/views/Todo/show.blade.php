@@ -11,7 +11,7 @@
             <div class="p-4 border rounded bg-light shadow-sm">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h4 class="mb-0">Toutes les tâches déjà faites</h4>
-                    <a href="{{ route('Todo.paginatefait') }}" class="btn btn-primary btn-sm">Voir tout</a>
+                    <a href="{{ route('Todo.fait') }}" class="btn btn-primary btn-sm">Voir tout</a>
                 </div>
                 @if ($todofait->isNotEmpty())
                     <table class="table table-striped">
@@ -57,7 +57,10 @@
         <!-- Section des tâches déjà faites -->
         <div class="col-6 mb-4">
             <div class="p-4 border rounded bg-light shadow-sm">
-                <h4 class="mb-4">Toutes les tâches non faites</h4>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 class="mb-0">Toutes les tâches non faites</h4>
+                    <a href="{{ route('Todo.nonfait') }}" class="btn btn-primary btn-sm">Voir tout</a>
+                </div>
                 @if ($todo_non_fait->isNotEmpty())
                 <table class="table table-striped">
                     <thead>

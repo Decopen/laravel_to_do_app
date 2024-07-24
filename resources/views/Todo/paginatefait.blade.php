@@ -1,8 +1,13 @@
 @extends('base')
 
-@section('title', "les taches faites")
+@section('title', "taches")
 
 @section('content')
+    @if ($todofait->isEmpty())
+        <p>
+            Pas de tache
+        </p>
+    @else
     @foreach ($todofait as $tache)
     <div class="container mt-5">
         <div class="row justify-content-center">
@@ -52,5 +57,6 @@
         </div>
     </div>
     @endforeach
+    @endif
     {{ $todofait->links() }}
 @endsection

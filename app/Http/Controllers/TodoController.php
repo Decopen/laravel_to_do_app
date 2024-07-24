@@ -67,6 +67,10 @@ class TodoController extends Controller
     }
     public function paginatefait(){
         $todofait = Todo::where("fait" , 1)->paginate(1);
-        return view("Todo.paginatefait" ,compact("todofait"));
+        return view("Todo.paginatefait" , compact('todofait'));
+    }
+    public function paginatenonfait(){
+        $todofait = Todo::where("fait" , 0)->paginate(1);
+        return view("Todo.paginatefait" , compact('todofait'));
     }
 }
