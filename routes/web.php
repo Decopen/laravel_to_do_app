@@ -13,11 +13,11 @@ Route::prefix("todo")->controller(TodoController::class)->name("Todo.")->group(
         Route::get('', "show")->name("show");
         Route::get('{todo}/edit', "editpage")->name("edit");
         Route::post('{todo}/edit', "edit");
-        Route::get('{todo}' , "chageState")->name("chageState");
+        Route::get('{todo}', "chageState")->name("chageState");
 
-        Route::delete('{todo}/delete' , "delete")->name("delete");
-        Route::get('{todo}/delete' , "delete")->name("delete");
-        
+        Route::delete('{todo}/delete', "delete")->name("delete");
+        Route::get('{todo}/delete', "delete")->name("delete");
+
         Route::post('', "store")->name("show");
         Route::get('{todo}/informations', "info")->name("info");
 
@@ -26,5 +26,8 @@ Route::prefix("todo")->controller(TodoController::class)->name("Todo.")->group(
     }
 );
 
-Route::get('fait', [TodoController::class  , 'paginatefait'])->name("Todo.fait");
-Route::get('nonfait', [TodoController::class  , 'paginatenonfait'])->name("Todo.nonfait");
+
+Route::controller(TodoController::class)->name("Todo.")->group(function () {
+    Route::get('fait', 'paginatefait')->name("fait");
+    Route::get('nonfait','paginatenonfait')->name("nonfait");
+});
