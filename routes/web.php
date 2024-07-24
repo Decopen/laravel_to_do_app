@@ -19,5 +19,9 @@ Route::prefix("/todo")->controller(TodoController::class)->name("Todo.")->group(
         
         Route::post('', "store")->name("show");
         Route::get('{todo}/informations', "info")->name("info");
+
+        Route::get("/faite" , "paginatefait")->name("paginatefait");
+        Route::get("/nonfait" , "paginatenonfait")->name("paginatenonfait");
+        Route::get("/faitounon" , "paginate")->name("paginate"); 
     }
 );

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TodoRequest;
 use App\Models\Todo;
-use Illuminate\Http\Request;
 
 class TodoController extends Controller
 {
@@ -62,9 +61,12 @@ class TodoController extends Controller
             return redirect()->route("Todo.show")->with("success", "Bravo vous avez effectuez la tâche : ".$todo->nom);
         }
     }
-
     public function delete(Todo $todo){
         $todo->delete();
         return redirect()->route("Todo.show")->with("success","supprimer avec success");
+    }
+    public function paginatefait(){
+        $todofait = Todo::where("fait" , 1)->paginate(1);
+        return view("Todo.paginatefait" ,compact("todofait"));
     }
 }
